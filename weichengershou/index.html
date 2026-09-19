@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>潍城二手房网-精选房源与购房指南服务平台</title>
+    <meta name="description" content="潍城二手房网提供最新最全的潍城区二手房房源信息，包括学区房、刚需房、改善型住宅等。我们致力于为购房者提供真实的房源数据、专业的购房建议及便捷的在线看房服务。">
+    <meta name="keywords" content="潍城二手房网, 潍城二手房, 潍坊二手房, 潍城区房产, 潍坊二手房交易">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-hover: #004494;
+            --accent-color: #f39c12;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-body: #f5f7fa;
+            --bg-white: #ffffff;
+            --border-color: #e1e4e8;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--primary-color);
+        }
+
+        .main-nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(0, 86, 179, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a202c;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-search {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-control {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #d68910;
+        }
+
+        .search-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .tag {
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: #f0f2f5;
+            padding: 4px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            color: var(--primary-color);
+            background: #e6f0fa;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Filter Section */
+        .filter-bar {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            outline: none;
+            min-width: 120px;
+        }
+
+        /* Property Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-address {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-price {
+            margin-top: auto;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .price-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .price-unit {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: white;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .guide-card {
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            background: #f8f9fa;
+            transition: background 0.3s;
+        }
+
+        .guide-card:hover {
+            background: #eef2f7;
+        }
+
+        .guide-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .guide-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .guide-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .guide-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3748;
+            color: #cbd5e0;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-links h5 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            .hero-search {
+                width: 100%;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+            .header-cta .btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-row {
+                flex-direction: column;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#0056b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 22V12H15V22" stroke="#0056b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                潍城二手房网
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">新房</a></li>
+                    <li><a href="#">租房</a></li>
+                    <li><a href="#">小区</a></li>
+                    <li><a href="#">学区房</a></li>
+                    <li><a href="#">资讯</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">免费发布</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>发现潍城理想家园，开启品质生活</h1>
+                <p>海量真实房源数据，覆盖潍城区各热门板块。从刚需小户型到改善大平层，助您轻松找到心仪的居住之所。</p>
+            </div>
+            <div class="hero-search">
+                <div class="search-row">
+                    <input type="text" class="form-control" placeholder="输入小区、商圈或地址">
+                </div>
+                <div class="search-row">
+                    <select class="filter-select">
+                        <option value="">价格范围</option>
+                        <option value="low">100万以下</option>
+                        <option value="mid">100-200万</option>
+                        <option value="high">200万以上</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">户型</option>
+                        <option value="1">1室</option>
+                        <option value="2">2室</option>
+                        <option value="3">3室</option>
+                        <option value="4">4室及以上</option>
+                    </select>
+                    <button class="search-btn">搜索房源</button>
+                </div>
+                <div class="search-tags">
+                    <span class="tag">锦绣华城</span>
+                    <span class="tag">万达广场</span>
+                    <span class="tag">潍州路</span>
+                    <span class="tag">实验小学</span>
+                    <span class="tag">地铁沿线</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>12,580</h3>
+                <p>在售房源</p>
+            </div>
+            <div class="stat-item">
+                <h3>8,420</h3>
+                <p>本月新增</p>
+            </div>
+            <div class="stat-item">
+                <h3>320</h3>
+                <p>活跃经纪人</p>
+            </div>
+            <div class="stat-item">
+                <h3>5,600</h3>
+                <p>服务业主</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Section: Featured Properties -->
+        <section class="section">
+            <h2 class="section-title">精选热推房源</h2>
+            <p class="section-subtitle">潍城热门地段优质好房，性价比之选</p>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <span class="filter-label">区域：</span>
+                    <select class="filter-select">
+                        <option>全区</option>
+                        <option>奎文区</option>
+                        <option>寒亭区</option>
+                        <option>坊子区</option>
+                        <option>潍城区</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">价格：</span>
+                    <select class="filter-select">
+                        <option>价格排序</option>
+                        <option>由低到高</option>
+                        <option>由高到低</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">更多筛选</span>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="property-grid">
+                <!-- Card 1 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <span class="card-badge">急售</span>
+                        <img src="https://picsum.photos/seed/house1/400/300" alt="潍城二手房源图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">万盛花园 3室2厅 120平米 南北通透</h3>
+                        <div class="card-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            潍城区北宫西街
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-item">3室2厅</span>
+                            <span class="feature-item">120㎡</span>
+                            <span class="feature-item">南</span>
+                            <span class="feature-item">中楼层</span>
+                        </div>
+                        <div class="card-price">
+                            <span class="price-label">总价</span>
+                            <div class="price-value">158万</div>
+                            <span class="price-unit">均价约 1.3万/㎡</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house2/400/300" alt="潍城二手房源图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">阳光100国际新城 2室1厅 89平米 精装</h3>
+                        <div class="card-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            潍城区健康东街
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-item">2室1厅</span>
+                            <span class="feature-item">89㎡</span>
+                            <span class="feature-item">东</span>
+                            <span class="feature-item">中层</span>
+                        </div>
+                        <div class="card-price">
+                            <span class="price-label">总价</span>
+                            <div class="price-value">98万</div>
+                            <span class="price-unit">均价约 1.1万/㎡</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <span class="card-badge">近地铁</span>
+                        <img src="https://picsum.photos/seed/house3/400/300" alt="潍城二手房源图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">宝通街沿线 4室2厅 150平米 大三居</h3>
+                        <div class="card-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            潍城区宝通街
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-item">4室2厅</span>
+                            <span class="feature-item">150㎡</span>
+                            <span class="feature-item">南北</span>
+                            <span class="feature-item">低楼层</span>
+                        </div>
+                        <div class="card-price">
+                            <span class="price-label">总价</span>
+                            <div class="price-value">210万</div>
+                            <span class="price-unit">均价约 1.4万/㎡</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house4/400/300" alt="潍城二手房源图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">幸福里小区 2室1厅 76平米 花园洋房</h3>
+                        <div class="card-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            潍城区胜利西街
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-item">2室1厅</span>
+                            <span class="feature-item">76㎡</span>
+                            <span class="feature-item">西</span>
+                            <span class="feature-item">高层</span>
+                        </div>
+                        <div class="card-price">
+                            <span class="price-label">总价</span>
+                            <div class="price-value">72万</div>
+                            <span class="price-unit">均价约 0.95万/㎡</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <span class="card-badge">满五唯一</span>
+                        <img src="https://picsum.photos/seed/house5/400/300" alt="潍城二手房源图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">潍城老城区 3室1厅 110平米 采光极佳</h3>
+                        <div class="card-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            潍城区东风街
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-item">3室1厅</span>
+                            <span class="feature-item">110㎡</span>
+                            <span class="feature-item">南</span>
+                            <span class="feature-item">中层</span>
+                        </div>
+                        <div class="card-price">
+                            <span class="price-label">总价</span>
+                            <div class="price-value">135万</div>
+                            <span class="price-unit">均价约 1.23万/㎡</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/house6/400/300" alt="潍城二手房源图片">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">高新区配套房 1室1厅 45平米 简单温馨</h3>
+                        <div class="card-address">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            潍城区高新二路
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-item">1室1厅</span>
+                            <span class="feature-item">45㎡</span>
+                            <span class="feature-item">北</span>
+                            <span class="feature-item">顶层</span>
+                        </div>
+                        <div class="card-price">
+                            <span class="price-label">总价</span>
+                            <div class="price-value">38万</div>
+                            <span class="price-unit">均价约 0.84万/㎡</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn btn-outline">加载更多房源</a>
+            </div>
+        </section>
+
+        <!-- Section: Buying Guide -->
+        <section class="section guide-section">
+            <h2 class="section-title">购房指南与资讯</h2>
+            <p class="section-subtitle">掌握最新楼市动态，了解购房流程与技巧</p>
+
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <div class="guide-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>购房全流程解析</h3>
+                    <p>从看房、选房到签约、过户，为您详细梳理潍城二手房交易中的每一个关键环节，助您规避风险，顺利安家。</p>
+                    <a href="#" class="guide-link">查看详情 &rarr;</a>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    </div>
+                    <h3>学区房选购技巧</h3>
+                    <p>针对潍城区教育资源配置，解析学区房政策与购房注意事项，帮助家长为孩子规划最佳求学路径。</p>
+                    <a href="#" class="guide-link">查看详情 &rarr;</a>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    </div>
+                    <h3>当前楼市行情分析</h3>
+                    <p>深度解读潍城二手房市场走势，分析热门板块价格波动，为您提供理性的置业参考数据。</p>
+                    <a href="#" class="guide-link">查看详情 &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h4>潍城二手房网</h4>
+                    <p>专注潍城区房产信息服务，致力于为购房者、卖家及经纪人提供专业、高效、透明的房产交易环境。连接每一个家庭的安居梦。</p>
+                    <p>电话：0536-88888888</p>
+                    <p>邮箱：contact@weicheng.com</p>
+                </div>
+                <div class="footer-links">
+                    <h5>快速导航</h5>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">新房资讯</a></li>
+                        <li><a href="#">二手房出售</a></li>
+                        <li><a href="#">二手房求购</a></li>
+                        <li><a href="#">租房信息</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>服务支持</h5>
+                    <ul>
+                        <li><a href="#">购房指南</a></li>
+                        <li><a href="#">学区查询</a></li>
+                        <li><a href="#">贷款计算器</a></li>
+                        <li><a href="#">经纪人入驻</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>关注我们</h5>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">APP下载</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 潍城二手房网 版权所有 | 仅供演示参考</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
