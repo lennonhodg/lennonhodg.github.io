@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="暴虐皇妃 - 沉浸式古风言情漫画与小说阅读平台，收录高人气虐恋、宫廷权谋题材作品，提供高清在线阅读与正版授权内容。">
+    <meta name="keywords" content="暴虐皇妃,古风漫画,虐恋小说,宫廷权谋,在线阅读,漫画推荐">
+    <title>暴虐皇妃-高虐宫廷古风漫画与小说阅读站</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* 深红，象征权谋与深情 */
+            --secondary-color: #2c2c2c; /* 深灰，背景色 */
+            --accent-color: #d4af37; /* 金色，象征皇权 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f4f4f4;
+            --bg-card: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #fff;
+            margin-left: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: #ccc;
+            font-size: 15px;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: #fff;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid #444;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            padding: 8px 12px;
+            color: #fff;
+            outline: none;
+            width: 160px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            border: none;
+            color: #fff;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/ancientpalace/1600/600') center/cover no-repeat;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #a50000;
+            transform: translateY(-2px);
+        }
+
+        /* 分类标签 */
+        .category-bar {
+            background: var(--bg-card);
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            cursor: pointer;
+            color: var(--text-light);
+            font-size: 15px;
+            position: relative;
+        }
+
+        .category-item:hover, .category-item.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .category-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* 内容网格 */
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 22px;
+            color: var(--text-main);
+        }
+
+        .section-title span {
+            margin-left: 15px;
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: normal;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .comic-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .comic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-cover {
+            position: relative;
+            width: 100%;
+            padding-top: 140%; /* 5:7 Aspect Ratio */
+            background-color: #eee;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(139, 0, 0, 0.85);
+            color: #fff;
+            padding: 2px 6px;
+            font-size: 12px;
+            border-radius: 2px;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 热门榜单 */
+        .ranking-list {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .ranking-item {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #eee;
+            color: #666;
+            text-align: center;
+            line-height: 24px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background: #ff4d4f; color: #fff; }
+        .rank-item:nth-child(2) .rank-num { background: #ff7a45; color: #fff; }
+        .rank-item:nth-child(3) .rank-num { background: #ffa940; color: #fff; }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 15px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .rank-desc {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .rank-score {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: #999;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 13px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .card-cover {
+                padding-top: 140%;
+            }
+
+            .search-box {
+                display: none; /* 移动端简化 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>暴虐皇妃</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">全部分类</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">作者专区</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索作品...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="container">
+                <h1>暴虐皇妃</h1>
+                <p>深宫幽梦，步步惊心。在权谋与爱恨交织的帝王家，看她如何从卑微庶女逆袭为一人之下万万人之上的暴虐皇妃。</p>
+                <a href="#" class="btn-primary">立即阅读</a>
+            </div>
+        </section>
+
+        <!-- 分类导航 -->
+        <section class="category-bar">
+            <div class="container">
+                <ul class="category-list">
+                    <li class="category-item active">全部</li>
+                    <li class="category-item">高虐</li>
+                    <li class="category-item">宫廷</li>
+                    <li class="category-item">重生</li>
+                    <li class="category-item">复仇</li>
+                    <li class="category-item">甜宠</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 推荐内容区 -->
+            <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 30px; margin-bottom: 50px;">
+                
+                <!-- 左侧：作品列表 -->
+                <section>
+                    <div class="section-title">
+                        <h2>精选推荐</h2>
+                        <span>为您甄选高人气宫廷古风作品</span>
+                    </div>
+
+                    <div class="grid-container">
+                        <!-- Card 1 -->
+                        <article class="comic-card">
+                            <div class="card-cover">
+                                <span class="card-tag">热推</span>
+                                <img src="https://picsum.photos/seed/emperor1/300/420" alt="暴虐皇妃封面">
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">暴虐皇妃：帝王的囚徒</h3>
+                                <div class="card-meta">
+                                    <span>已完结</span>
+                                    <span>9.8分</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="comic-card">
+                            <div class="card-cover">
+                                <span class="card-tag">更新</span>
+                                <img src="https://picsum.photos/seed/emperor2/300/420" alt="暴虐皇妃封面">
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">凤逆九天：冷面暴君</h3>
+                                <div class="card-meta">
+                                    <span>连载中</span>
+                                    <span>9.5分</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="comic-card">
+                            <div class="card-cover">
+                                <img src="https://picsum.photos/seed/emperor3/300/420" alt="暴虐皇妃封面">
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">深宫锁情：妃命难违</h3>
+                                <div class="card-meta">
+                                    <span>已完结</span>
+                                    <span>9.2分</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="comic-card">
+                            <div class="card-cover">
+                                <span class="card-tag">独家</span>
+                                <img src="https://picsum.photos/seed/emperor4/300/420" alt="暴虐皇妃封面">
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">暴君的掌心宠</h3>
+                                <div class="card-meta">
+                                    <span>连载中</span>
+                                    <span>9.6分</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <!-- Card 5 -->
+                        <article class="comic-card">
+                            <div class="card-cover">
+                                <img src="https://picsum.photos/seed/emperor5/300/420" alt="暴虐皇妃封面">
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">废后翻身：摄政王</h3>
+                                <div class="card-meta">
+                                    <span>已完结</span>
+                                    <span>9.4分</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="comic-card">
+                            <div class="card-cover">
+                                <img src="https://picsum.photos/seed/emperor6/300/420" alt="暴虐皇妃封面">
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">冷宫弃妃</h3>
+                                <div class="card-meta">
+                                    <span>连载中</span>
+                                    <span>9.1分</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- 右侧：排行榜 -->
+                <aside>
+                    <div class="ranking-list">
+                        <div class="section-title" style="margin-bottom: 15px;">
+                            <h2>热门榜单</h2>
+                        </div>
+                        
+                        <div class="ranking-item">
+                            <div class="rank-num">1</div>
+                            <div class="rank-info">
+                                <span class="rank-title">暴虐皇妃：帝王的囚徒</span>
+                                <span class="rank-desc">今日阅读 12.5w</span>
+                            </div>
+                            <span class="rank-score">9.8</span>
+                        </div>
+
+                        <div class="ranking-item">
+                            <div class="rank-num">2</div>
+                            <div class="rank-info">
+                                <span class="rank-title">凤逆九天：冷面暴君</span>
+                                <span class="rank-desc">今日阅读 10.2w</span>
+                            </div>
+                            <span class="rank-score">9.5</span>
+                        </div>
+
+                        <div class="ranking-item">
+                            <div class="rank-num">3</div>
+                            <div class="rank-info">
+                                <span class="rank-title">深宫锁情：妃命难违</span>
+                                <span class="rank-desc">今日阅读 9.8w</span>
+                            </div>
+                            <span class="rank-score">9.2</span>
+                        </div>
+
+                        <div class="ranking-item">
+                            <div class="rank-num">4</div>
+                            <div class="rank-info">
+                                <span class="rank-title">废后翻身：摄政王</span>
+                                <span class="rank-desc">今日阅读 8.5w</span>
+                            </div>
+                            <span class="rank-score">9.4</span>
+                        </div>
+
+                        <div class="ranking-item">
+                            <div class="rank-num">5</div>
+                            <div class="rank-info">
+                                <span class="rank-title">暴君的掌心宠</span>
+                                <span class="rank-desc">今日阅读 7.1w</span>
+                            </div>
+                            <span class="rank-score">9.6</span>
+                        </div>
+                    </div>
+
+                    <!-- 广告位占位 -->
+                    <div style="background: #333; color: #fff; padding: 20px; text-align: center; border-radius: 8px; margin-top: 20px;">
+                        <p style="font-size: 12px; color: #666;">广告位</p>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- 专题介绍 -->
+            <section style="background: #fff; padding: 30px; border-radius: 8px; margin-bottom: 50px;">
+                <div class="section-title">
+                    <h2>专题：宫廷权谋与虐恋美学</h2>
+                </div>
+                <p style="margin-bottom: 20px; color: var(--text-light);">
+                    “暴虐皇妃”题材深受读者喜爱，这类作品通常描绘女主角在等级森严的皇宫中，面对喜怒无常的帝王和险恶的宫廷斗争，如何在绝望中寻找生机，最终掌握自己命运的故事。本站精选了一系列高虐、高燃、剧情紧凑的宫廷古风作品，带您领略帝王家最真实的爱恨情仇。
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <span style="background: #f5f5f5; padding: 5px 12px; border-radius: 4px; font-size: 13px;">#复仇爽文</span>
+                    <span style="background: #f5f5f5; padding: 5px 12px; border-radius: 4px; font-size: 13px;">#追妻火葬场</span>
+                    <span style="background: #f5f5f5; padding: 5px 12px; border-radius: 4px; font-size: 13px;">#双强</span>
+                    <span style="background: #f5f5f5; padding: 5px 12px; border-radius: 4px; font-size: 13px;">#大女主</span>
+                </div>
+            </section>
+
+            <!-- 最新更新 -->
+            <section>
+                <div class="section-title">
+                    <h2>最新章节</h2>
+                    <span>紧跟剧情，不错过任何虐点</span>
+                </div>
+                <div style="background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="background: #f9f9f9; border-bottom: 1px solid #eee;">
+                                <th style="padding: 15px; font-weight: normal; color: #666;">作品名称</th>
+                                <th style="padding: 15px; font-weight: normal; color: #666;">更新时间</th>
+                                <th style="padding: 15px; font-weight: normal; color: #666;">最新章节</th>
+                                <th style="padding: 15px; font-weight: normal; color: #666;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #f0f0f0;">
+                                <td style="padding: 15px;">暴虐皇妃：帝王的囚徒</td>
+                                <td style="padding: 15px; color: #999;">2023-10-24</td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">第324章 殿下别来无恙</a></td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">阅读</a></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f0f0f0;">
+                                <td style="padding: 15px;">凤逆九天：冷面暴君</td>
+                                <td style="padding: 15px; color: #999;">2023-10-24</td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">第108章 惊鸿一瞥</a></td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">阅读</a></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #f0f0f0;">
+                                <td style="padding: 15px;">深宫锁情：妃命难违</td>
+                                <td style="padding: 15px; color: #999;">2023-10-23</td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">第89章 步步为营</a></td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">阅读</a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px;">废后翻身：摄政王</td>
+                                <td style="padding: 15px; color: #999;">2023-10-23</td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">第55章 筹谋</a></td>
+                                <td style="padding: 15px;"><a href="#" style="color: var(--primary-color);">阅读</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>关于暴虐皇妃</h3>
+                    <p style="font-size: 13px; line-height: 1.8;">暴虐皇妃网致力于为读者提供最优质的古风漫画与小说阅读体验。我们专注于宫廷权谋、虐恋情深题材，收录全网最全正版资源，支持离线下载与高清阅读。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速导航</h3>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">标签筛选</a></li>
+                        <li><a href="#">VIP会员</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">如何阅读</a></li>
+                        <li><a href="#">充值说明</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">QQ粉丝群</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 暴虐皇妃漫画网 版权所有 | 仅供学习交流使用，请支持正版</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
